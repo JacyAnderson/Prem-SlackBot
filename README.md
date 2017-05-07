@@ -9,3 +9,10 @@ Employee in a technology firm that 1) often uses Slack to communicate 2) is emot
 
 ## Problem to Solve: 
 When employees face an emotionally challenging situation in the workplace (ex. I had a meeting that was incredibly infuriating), they don't have a mechanism for coping with the problem. Bring a psychotherapy staple - Cognitive Behavioral Therapy - to employees when they need it. 
+
+## Tech Used:
+- Slack App
+- [node-slack-sdk](https://github.com/slackapi/node-slack-sdk)
+- [botkit](https://www.botkit.ai/)
+- npm sentiment
+- Node.js
