@@ -1,6 +1,32 @@
 var Botkit = require('botkit');
 require('dotenv').config();
 var cron = require('node-cron');
+
+
+var SlackBot = require('slackbots');
+ 
+// create a bot 
+var welcomeBot = new SlackBot({
+    token: process.env.API_TOKEN, // Add a bot https://my.slack.com/services/new/bot and put the token  
+    name: 'Prem'
+});
+ 
+welcomeBot.on('start', function() {
+    // more information about additional params https://api.slack.com/methods/chat.postMessage 
+
+   console.log(welcomeBot.getUsers()._value);
+    var params = {
+        icon_emoji: ':cat:'
+    };
+    
+    // define channel, where bot exist. You can adjust it there https://my.slack.com/services  
+    welcomeBot.postMessageToUser('taylorlaine', 'meow!', params);
+  });
+
+
+
+
+
  
 var controller = Botkit.slackbot();
 
@@ -24,28 +50,129 @@ bot.startRTM(function(err,bot,payload) {
  
 });
 
-controller.hears(["hi"], ["direct_message","direct_mention","mention","ambient"], function(bot,message) {
 
-    console.log(message.text);
+controller.hears(["hi"], 'direct_message,direct_mention,mention', function(bot, message) {
+  bot.startConversation(message, function(err, convo) {
+    convo.say('Hi. I am Prem');
+    convo.say('I do not know your name yet!');
 
-    function sentimentToSmiley(sentiment) {
-      var score = sentiment.score;
+    convo.ask('What should I call you?', function(response, convo) {
+        convo.ask('You want me to call you `' + response.text + '`?', [
+            {
+              pattern: 'yes',
+              callback: function(response, convo) {
+                // since no further messages are queued after this,
+                // the conversation will end naturally with status == 'completed'
+                convo.next();
+              }
+            },
+            {
+              pattern: 'no',
+              callback: function(response, convo) {
+                  // stop the conversation. this will cause it to end with status == 'stopped'
+                  convo.stop();
+              }
+            },
+            {
+              default: true,
+              callback: function(response, convo) {
+                  convo.repeat();
+                  convo.next();
+              }
+            }
+        ]);
 
-      if(score === 0) { return ':-|' }
-      if(score < 0) {
-        if(score > -2) { return ':-(' }
-        return ':`('
-      }
+        convo.next();
 
-      if(score < 2) { return ':-)' }
-      return ':-D'
-    }
+    }, {'key': 'name'}); // store the results in a field called nickname
 
-    var text = message.text;
-    var results = sentiment(text);
-    console.log(results);
-    console.log(results.negative);
-    console.log(sentimentToSmiley(results), '-', text.replace(/\n/g, ' '));
+    convo.on('end', function(convo) {
+       var name = convo.extractResponse('name');
+       console.log(name);
+     });
+
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// controller.hears(["hi"], ["direct_message","direct_mention","mention","ambient"], function(bot,message) {
+
+//     function sentimentToSmiley(sentiment) {
+//       var score = sentiment.score;
+
+//       if(score === 0) { return ':-|' }
+//       if(score < 0) {
+//         if(score > -2) { return ':-(' }
+//         return ':`('
+//       }
+
+//       if(score < 2) { return ':-)' }
+//       return ':-D'
+//     }
+
+//     var text = message.text;
+//     var results = sentiment(text);
+//     console.log(results);
+//     console.log(results.negative);
+//     console.log(sentimentToSmiley(results), '-', text.replace(/\n/g, ' '));
+
+//       controller.storage.users.get(message.user, function(err, user) {
+//         console.log(user);
+//         if (user && user.name) {
+//             bot.reply(message, 'Hello ' + user.name + '!!');
+//         } else {
+//             bot.reply(message, 'Hello.');
+//         }
+//     });
 
 
 // 	bot.createConversation(message, function(err, convo) {
@@ -109,25 +236,25 @@ controller.hears(["hi"], ["direct_message","direct_mention","mention","ambient"]
 
 //     convo.activate();
 // });
-});
+//});
 
-var interacted = false;
+// var interacted = false;
 
-function timer() {
-    interacted = true;
-    console.log(interacted);
-    var task = cron.schedule('* 36 0 * * Sun', function(){
-      console.log('click');
-      console.log(interacted);
-      task.stop();
-    });
-    if (interacted) {
-        var task2 = cron.schedule('* 37 0 * * Sun', function(){
-            interacted = false;
-            console.log(interacted);
-            task2.stop();
-        });
-    }
-}
-timer();
+// function timer() {
+//     interacted = true;
+//     console.log(interacted);
+//     var task = cron.schedule('* 36 0 * * Sun', function(){
+//       console.log('click');
+//       console.log(interacted);
+//       task.stop();
+//     });
+//     if (interacted) {
+//         var task2 = cron.schedule('* 37 0 * * Sun', function(){
+//             interacted = false;
+//             console.log(interacted);
+//             task2.stop();
+//         });
+//     }
+// }
+// timer();
 
