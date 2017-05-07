@@ -18,3 +18,16 @@ When employees face an emotionally challenging situation in the workplace (ex. I
 - [botkit](https://www.botkit.ai/)
 - npm sentiment
 - Node.js
+
+## Sensient:
+-Employee Engagement
+-Ask 'em what's up, Get 'em engaged, Recognize 'em, Listen to 'em, Make 'em happy
+-Retain employees, Increase productivity
+-Empower workers
+-Your path to happier employees, healthier culture, and improved productivity.
+
+## Competitors/similar products:
+-Pogor(Facebook)[Click here to be directed to Pogor](https://botlist.co/bots/2218-pogor)
+-Joy(Facebook)[Click here to be directed to Joy](https://chatbottle.co/bots/joy-1)
+-Stop, Breathe & Think(Slack)[Click here to be directed to SBT](https://slack.com/apps/A2HNBSQP9-stop-breathe-think)
+-Vibe(Slack) [Click here to be directed to Vibe](https://vibe.work/#features)
