@@ -24,9 +24,6 @@ When employees face an emotionally challenging situation in the workplace (ex. I
 - Ask 'em what's up, Get 'em engaged, Recognize 'em, Listen to 'em, Make 'em happy
 - Retain employees, Increase productivity
 - Empower workers
-
-
-## Test
 - Your path to happier employees, healthier culture, and improved productivity.
 
 ## Competitors/similar products:
