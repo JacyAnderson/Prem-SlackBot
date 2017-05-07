@@ -1,6 +1,8 @@
 # Prem-SlackBot
 Prem is a SlackBot designed for Sensient HR that helps employees cope with stressful emotions in the workplace.
 
+## [Trello Board](https://trello.com/b/tkG9oZKl/sensient-slackbot)
+
 ## Sensient HR Website: 
 [Click here to be directed to Sensient HR's website.](http://sensienthr.com/)
 
