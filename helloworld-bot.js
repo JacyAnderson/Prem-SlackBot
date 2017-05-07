@@ -1,5 +1,5 @@
 var Botkit = require('botkit');
-require('dotenv');
+require('dotenv').config();
  
 var controller = Botkit.slackbot();
  
