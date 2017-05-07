@@ -1,10 +1,11 @@
 var Botkit = require('botkit');
+require('dotenv');
  
 var controller = Botkit.slackbot();
  
 var bot = controller.spawn({
  
-  token: "xoxb-180505096471-YqdN9geaoAdOCW6mZf1arbz6"
+  token: process.env.API_TOKEN
  
 })
  

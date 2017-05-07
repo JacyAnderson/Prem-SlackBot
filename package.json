@@ -19,6 +19,7 @@
   "homepage": "https://github.com/JacyAnderson/Prem-SlackBot#readme",
   "dependencies": {
     "botkit": "^0.5.4",
+    "dotenv": "^4.0.0",
     "slackbot": "0.0.2"
   }
 }
