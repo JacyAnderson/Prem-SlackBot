@@ -1,4 +1,7 @@
+// Require BotKit
 var Botkit = require('botkit');
+
+// Require dotenv
 require('dotenv').config();
  
 var controller = Botkit.slackbot();
@@ -8,7 +11,8 @@ var bot = controller.spawn({
   token: process.env.API_TOKEN
  
 })
- 
+
+// Start Real Time Messaging
 bot.startRTM(function(err,bot,payload) {
  
   if (err) {
@@ -19,6 +23,7 @@ bot.startRTM(function(err,bot,payload) {
  
 });
 
+// When bot hears specified input, react accordingly
 controller.hears(["hi"], ["direct_message","direct_mention","mention","ambient"], function(bot,message) {
 	bot.createConversation(message, function(err, convo) {
 
