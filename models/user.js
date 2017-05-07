@@ -3,4 +3,4 @@ module.exports = function(sequelize, Sequelize) {
     name: Sequelize.STRING,
     interacted: {type: Sequelize.BOOLEAN, allowNull: false, default: false}
   });
-}
+};
