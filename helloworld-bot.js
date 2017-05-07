@@ -17,34 +17,6 @@ bot.startRTM(function(err,bot,payload) {
   }
  
 });
- 
-// controller.hears(["Hello","Hi"],["direct_message","direct_mention","mention","ambient"],function(bot,message) {
- 
-//   bot.reply(message,'Hello, how are you today?');
- 
-// });
-
-// controller.hears(["Good","Okay", "Fine"],["direct_message","direct_mention","mention","ambient"],function(bot,message) {
- 
-//   bot.reply(message,'Thats great! What can I do for you?');
- 
-// });
-
-// controller.hears(["question"], ["direct_message","direct_mention","mention","ambient"], function(bot,message) {
-// 	console.log("heard");
-//   // start a conversation to handle this response.
-//   bot.startConversation(message,function(err,convo) {
-
-//     convo.addQuestion('How are you?',function(response,convo) {
-
-//       convo.say('Cool, you said: ' + response.text);
-//       convo.next();
-
-//     },{},'default');
-
-//   })
-
-// });
 
 controller.hears(["hi"], ["direct_message","direct_mention","mention","ambient"], function(bot,message) {
 	bot.createConversation(message, function(err, convo) {
