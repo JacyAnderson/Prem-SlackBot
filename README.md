@@ -30,4 +30,4 @@ When employees face an emotionally challenging situation in the workplace (ex. I
 -Pogor(Facebook)[Click here to be directed to Pogor](https://botlist.co/bots/2218-pogor)
 -Joy(Facebook)[Click here to be directed to Joy](https://chatbottle.co/bots/joy-1)
 -Stop, Breathe & Think(Slack)[Click here to be directed to SBT](https://slack.com/apps/A2HNBSQP9-stop-breathe-think)
--Vibe(Slack) [Click here to be directed to Vibe](https://vibe.work/#features)
+-Vibe(Slack) [Click here to be directed to Vibe](https://vibe.work/#features) aaa
