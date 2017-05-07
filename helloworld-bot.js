@@ -24,7 +24,7 @@ bot.startRTM(function(err,bot,payload) {
 });
 
 // When bot hears specified input, react accordingly
-controller.hears(["hi"], ["direct_message","direct_mention","mention","ambient"], function(bot,message) {
+controller.hears(["hi", "hello", "what's up", "howdy", "greetings"], ["direct_message","direct_mention","mention","ambient"], function(bot,message) {
 	bot.createConversation(message, function(err, convo) {
 
     // create a path for when a user says YES
