@@ -11,6 +11,8 @@ function AdminCtrl($http) {
   vm.newUser = {};
   vm.getUsers = getUsers;
   vm.deleteUser = deleteUser;
+  vm.allSessions = [];
+  vm.getSessions = getSessions;
 
   getUsers();
   function getUsers() {
@@ -23,6 +25,19 @@ function AdminCtrl($http) {
       console.log(vm.all);
     });
   }
+
+  getSessions();
+  function getSessions() {
+    console.log('getting users');
+    $http 
+    .get('http://localhost:3000/api/sessions')
+    .then(function(response) {
+      console.log(response.data);
+      vm.allSessions = response.data;
+      console.log(vm.allSessions);
+    });
+  }
+
 
   function addUser() {
     $http

@@ -2,7 +2,7 @@
 var Sequelize = require('sequelize');
 
 
-var sequelize = new Sequelize('postgres://taylorlaine@localhost:5432/prem_slackbot');
+var sequelize = new Sequelize('postgres://JacyAanderson@localhost:5432/prem_slackbot');
 
 // Export models 
 module.exports.Sequelize = Sequelize;
