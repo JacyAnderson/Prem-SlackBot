@@ -14,10 +14,15 @@ When employees face an emotionally challenging situation in the workplace (ex. I
 
 ## Tech Used:
 - Slack App
-- [node-slack-sdk](https://github.com/slackapi/node-slack-sdk)
 - [botkit](https://www.botkit.ai/)
 - npm sentiment
 - Node.js
+
+## Reccommended Technologies:
+1. Botkit and/or BotKit Studio 
+2. NPM Sentiment
+3. SQL 
+4. Slack API
 
 ## Sensient language:
 - Employee Engagement
