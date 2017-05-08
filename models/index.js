@@ -9,12 +9,12 @@ module.exports.Sequelize = Sequelize;
 module.exports.sequelize = sequelize;
 
 var User = sequelize.import('./user');
-// var Session = sequelize.import('./session');
+var Session = sequelize.import('./session');
 
-// Session.belongsTo(User);
-// User.hasMany(Session);
+Session.belongsTo(User);
+User.hasMany(Session);
 
 module.exports.models = {
-  User: User
-  // Session: Session
+  User: User,
+  Session: Session
 };
