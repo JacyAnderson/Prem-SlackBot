@@ -2,13 +2,14 @@ var DB = require("../models").models;
 
 var userCreate = function() {
   return DB.User.create({
-    name: 'Wob',
+    lastname: 'Wob',
+    firstname: "SquibbySwibbi",
     interacted: false
   });
 };
 
-var sessionCreate = function() {
-  return DB.Session.create({
-    
-  })
-}
+userCreate()
+.then(function(){
+  console.log("its wobby");
+  process.exit();
+});

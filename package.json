@@ -20,6 +20,9 @@
   "dependencies": {
     "botkit": "^0.5.4",
     "dotenv": "^4.0.0",
+    "pg": "^6.1.5",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.4",
     "slackbot": "0.0.2"
   }
 }

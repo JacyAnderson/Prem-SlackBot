@@ -5,12 +5,12 @@ var botRoutes = require('./config/routes.js');
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
-app.use(botRouter);
+app.use(botRoutes);
 app.use(express.static('public'));
 // app.use(function(req, res) {
   // res.sendFile(__dirname + '/public/index.html');
 // });
 
 app.listen(3000, function() {
-  console.log("Listenig on localhost: 3000");
+  console.log("Listening on localhost: 3000");
 });

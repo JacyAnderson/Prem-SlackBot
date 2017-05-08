@@ -11,19 +11,28 @@
 <div class="container">
   <h2>Admin</h2>
   <div>
+  <!-- {{admin.all}} -->
     <table class="table">
       <thead>
         <tr>
-          <th>User</th>
+          <th>Last Name</th>
+          <th>First Name</th>
           <th>Session ID</th>
           <th>Score</th>
           <th>Key Words</th>
         </tr>
       </thead>
-      <tbody>
+      <!-- <tbody ng-repeat="user in admin.all">
         <td></td>
         <td></td>
         <td></td>
+        <td></td>
+      </tbody> -->
+
+      <tbody ng-repeat="user in admin.all">
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.score }}</td>
         <td></td>
       </tbody>
     </table>

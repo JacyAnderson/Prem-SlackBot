@@ -1,11 +1,19 @@
 var db = require('../models');
 var User = db.models.User;
-var Session = db.models.Session;
+// var Session = db.models.Session;
 
 function index(req, res) {
 	User.findAll().then(function(users){
 		res.json(users);
 	});
+	// res.json([{
+	// 	name: 'Wob',
+	// 	score: -2
+	// },
+	// {
+	// 	name: 'Squab',
+	// 	score: -9000
+	// }]);
 }
 
 function show(req, res) {

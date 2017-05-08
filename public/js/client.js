@@ -14,10 +14,13 @@ function AdminCtrl($http) {
 
   getUsers();
   function getUsers() {
+    console.log('getting users');
     $http 
     .get('http://localhost:3000/api/users')
     .then(function(response) {
-      vm.all = response.data.users;
+      console.log(response.data);
+      vm.all = response.data;
+      console.log(vm.all);
     });
   }
 
