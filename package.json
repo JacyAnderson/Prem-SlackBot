@@ -2,7 +2,7 @@
   "name": "Prem-SlackBot",
   "version": "1.0.0",
   "description": "Prem is a SlackBot designed for Sensient HR that helps employees cope with stressful emotions in the workplace.",
-  "main": "helloworld-bot.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,25 +11,22 @@
     "url": "git+https://github.com/JacyAnderson/Prem-SlackBot.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "TaylorLaine <taylorlaine.co@gmail.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JacyAnderson/Prem-SlackBot/issues"
   },
   "homepage": "https://github.com/JacyAnderson/Prem-SlackBot#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "botkit": "^0.5.4",
-    "cheerio": "^0.22.0",
     "dotenv": "^4.0.0",
-
+    "express": "^4.15.2",
     "node-cron": "^1.1.3",
-    "sentiment": "^4.0.0",
-    "slackbot": "0.0.2",
-    "slackbots": "^1.0.2",
-
     "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",
+    "sentiment": "^4.0.0",
     "sequelize": "^3.30.4",
-    "slackbot": "0.0.2"
+    "slackbots": "^1.0.2"
   }
 }
