@@ -137,8 +137,6 @@ controller.hears([''], ["direct_message","direct_mention","mention","ambient"], 
     }
 
 
-
-=======
 // When bot hears specified input, react accordingly
 controller.hears(["hi", "hello", "what's up", "howdy", "greetings"], ["direct_message","direct_mention","mention","ambient"], function(bot,message) {
 	bot.createConversation(message, function(err, convo) {
