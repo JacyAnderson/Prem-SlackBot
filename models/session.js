@@ -3,7 +3,8 @@ module.exports = function(sequelize, Sequelize) {
     user_id: Sequelize.STRING, //should reference user.id
     session_id: Sequelize.STRING,
     score: Sequelize.STRING,
-    key_word: Sequelize.STRING
+    key_word: Sequelize.STRING,
+    response: Sequelize.STRING
   });
   return model;  
 };
