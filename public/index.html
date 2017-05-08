@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/js/client.js"></script>
+</head>
+<body ng-app="prem-slackbot">
+<div ng-controller="AdminCtrl as admin">
+<div class="container">
+  <h2>Admin</h2>
+  <div>
+  <!-- {{admin.all}} -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Last Name</th>
+          <th>First Name</th>
+          <th>Session ID</th>
+          <th>Score</th>
+          <th>Key Words</th>
+        </tr>
+      </thead>
+      <!-- <tbody ng-repeat="user in admin.all">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tbody> -->
+
+      <tbody ng-repeat="user in admin.all">
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.score }}</td>
+        <td></td>
+      </tbody>
+    </table>
+  </div>
+</div> 
+</div>
+</body>
+</html>
