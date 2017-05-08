@@ -17,22 +17,31 @@
         <tr>
           <th>Last Name</th>
           <th>First Name</th>
-          <th>Session ID</th>
-          <th>Score</th>
-          <th>Key Words</th>
+          <th>User ID</th>
         </tr>
       </thead>
-      <!-- <tbody ng-repeat="user in admin.all">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tbody> -->
-
       <tbody ng-repeat="user in admin.all">
         <td>{{ user.lastname }}</td>
         <td>{{ user.firstname }}</td>
-        <td>{{ user.score }}</td>
+        <td>{{ user.id }}</td>
+        <td></td>
+      </tbody>
+    </table>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Session ID</th>
+          <th>Score</th>
+          <th>Key Word</th>
+          <th>User Id</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="session in admin.allSessions">
+        <td>{{ session.id }}</td>
+        <td>{{ session.score }}</td>
+        <td>{{ session.key_word }}</td>
+        <td>{{ session.userId }}</td>
         <td></td>
       </tbody>
     </table>
