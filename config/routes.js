@@ -1,6 +1,13 @@
+// Requires express for routing
 var express = require('express');
+
+// Create express router
 var router = express.Router();
+
+// Require user controller
 var usersController = require('../controllers/users.js');
+
+// Require session controller
 var sessionsController = require('../controllers/sessions.js');
 
 
@@ -9,33 +16,16 @@ var sessionsController = require('../controllers/sessions.js');
 //index
 router.get('/api/users', usersController.index);
 
-//Create
-router.post('/api/users', usersController.create);
-
 //show
 router.get('/api/users/:id', usersController.show);
-
-//update
-router.put('/api/users/:id', usersController.update);
-
-//destroy
-router.delete('/api/users/:id', usersController.destroy);
 
 //Session Routes
 
 //index
 router.get('/api/sessions', sessionsController.index);
 
-//Create
-router.post('/api/sessions', sessionsController.create);
-
 //Show
 router.get('/api/sessions/:id', sessionsController.show);
 
-//Update
-router.put('/api/sessions/:id', sessionsController.update);
-
-//Destory
-router.delete('/api/sessions/:id', sessionsController.destroy);
-
+// Export Router
 module.exports = router;

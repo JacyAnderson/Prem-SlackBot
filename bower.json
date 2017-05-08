@@ -3,7 +3,9 @@
   "description": "Prem is a SlackBot designed for Sensient HR that helps employees cope with stressful emotions in the workplace.",
   "main": "helloworld-bot.js",
   "authors": [
-    "JacyAnderson <jacyjamesanderson@gmail.com>"
+    "JacyAnderson <jacyjamesanderson@gmail.com>",
+    "TaylorLaine <taylorlaine.co@gmail.com",
+    "WilliamMcCormack <bp_wade@hotmail.com"
   ],
   "license": "ISC",
   "homepage": "https://github.com/JacyAnderson/Prem-SlackBot",
