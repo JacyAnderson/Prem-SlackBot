@@ -1,5 +1,7 @@
+// Require models to connect to database
 var DB = require("../models").models;
 
+// Set up test user for database
 var userCreate = function() {
   return DB.User.create({
     lastname: 'Smith',
@@ -8,6 +10,7 @@ var userCreate = function() {
   });
 };
 
+// Set up test sesssion for data base
 var sessionCreate = function(id) {
   return DB.Session.create({
     score: "-5",
@@ -16,6 +19,7 @@ var sessionCreate = function(id) {
   });
 };
 
+// Create test user and session
 userCreate()
 .then(function(user){
   console.log(user.id);

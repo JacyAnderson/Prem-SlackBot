@@ -1,59 +1,44 @@
+// Create angular app called prem-slackbot
 angular.module("prem-slackbot", [])
 .controller('AdminCtrl', AdminCtrl);
 
-// Controllers
+// Inject $http so minification is possible
 AdminCtrl.$inject = ['$http'];
 
+// AdminCtrl controller gets users and sessions from backend
 function AdminCtrl($http) {
+
+  // Set vm to this for proper scope
   var vm = this;
   vm.all=[];
   vm.addUser = addUser;
-  vm.newUser = {};
   vm.getUsers = getUsers;
-  vm.deleteUser = deleteUser;
   vm.allSessions = [];
   vm.getSessions = getSessions;
 
+  // Call get users
   getUsers();
+
+  // getUsers function gets users from backend api
   function getUsers() {
-    console.log('getting users');
     $http 
     .get('http://localhost:3000/api/users')
     .then(function(response) {
-      console.log(response.data);
+      // stores users from response into vm.allSessions
       vm.all = response.data;
-      console.log(vm.all);
     });
   }
 
+  // Call get sessions
   getSessions();
+
+  // getSessions function gets sessions from backend api
   function getSessions() {
-    console.log('getting users');
     $http 
     .get('http://localhost:3000/api/sessions')
     .then(function(response) {
-      console.log(response.data);
+      // stores sesssions from response into vm.allSessions
       vm.allSessions = response.data;
-      console.log(vm.allSessions);
     });
-  }
-
-
-  function addUser() {
-    $http
-    .post('http://localhost:3000/api/users')
-    .then(function(response) {
-      getUsers();
-    });
-    vm.newUser = {};
-  }
-
-  function deleteUser(user) {
-    $http
-      .delete('http://localhost:3000/api/users/' + user._id)
-      .then(function(response) {
-        var index = vm.all.indexOf(user);
-        self.all.splice(index, 1);
-      });
   }
 }
