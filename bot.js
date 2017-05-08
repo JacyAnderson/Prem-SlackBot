@@ -6,13 +6,14 @@ var SlackBot = require('slackbots');
 
 var db = require('./models');
 var User = db.models.User;
+var Session = db.models.Session;
 
  
 // create a bot 
 var welcomeBot = new SlackBot({
     token: process.env.API_TOKEN, // Add a bot https://my.slack.com/services/new/bot and put the token  
 });
- 
+var currentSession;
 welcomeBot.on('start', function() {
     // more information about additional params https://api.slack.com/methods/chat.postMessage 
 
@@ -29,10 +30,37 @@ welcomeBot.on('start', function() {
       firstname: name[0],
       interacted: true
     } 
-    User.create(obj).then(function(user){
-    if(!user) return error(res, "not saved");
-      console.log("saved");
-    });
+
+    var sessObj = {
+      score: '-2',
+      key_word: 'wooott'
+    }
+
+
+    User.findAll({
+      where: {
+        lastname: 'Laine'
+      }
+    })
+    .then(function(user){
+      if(!user) {
+        console.log("user Found");
+        User.create(obj).then(function(user){
+        if(!user) return error(res, "not saved");
+          console.log("saved");
+        });
+        return error(res, "not found");
+      }
+
+      sessObj.userId = user[0].dataValues.id;
+      Session.create(sessObj).then(function(session){
+        
+        currentSession = session.dataValues.id;
+        if(!session) return error(res, "not saved");
+          console.log("saved");
+        });
+      //console.log(user[0].dataValues.id);
+     }); 
   });
 
 var controller = Botkit.slackbot();
@@ -112,9 +140,19 @@ controller.hears([''], ["direct_message","direct_mention","mention","ambient"], 
             text: "Thats okay, we can talk next week. \n In the meantime, I'm always here if you need me.",
           },'talkMore_no_thread');
 
-        convo.addMessage({
-            text: "Okay \n Would you mind telling me a bit more about whats going on?",
-          },'talkMore_yes_thread');
+        convo.addQuestion("Okay \n Would you mind telling me a bit more about whats going on?", function(response, convo) {
+
+              convo.say('Cool, you said: ' + response.text);
+              console.log(currentSession);
+              Session.findById(currentSession).then(function(thisSession){
+                console.log(thisSession);
+                return thisSession.updateAttributes({response: response.text});
+              });
+          
+              convo.next();
+
+        },{},'talkMore_yes_thread');
+       
           
           //convo.say(positive);
       });
